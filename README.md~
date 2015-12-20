@@ -1,6 +1,7 @@
-# base-structure for angular js
+# base-client
 
-This project contains basic structure for angular project. its contain saas css integartion.
+This project is generated with [yo angular generator](https://github.com/yeoman/generator-angular)
+version 0.14.0.
 
 ## Build & development
 
