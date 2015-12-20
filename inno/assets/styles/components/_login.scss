@@ -1,0 +1,39 @@
+.login-box {
+    width: 400px;
+    //background: #fff;
+    padding: 20px;
+    margin: 40px auto;
+    //border-radius: 4px;
+    //box-shadow: 2px 2px 4px #ccc;
+    .title {
+    	@include font-family(medium);
+    	padding: 0 0 20px;
+    	text-align: center;
+    }
+    .btn {
+    	padding: 10px;
+    	font-size: 16px;
+    }
+}
+.login-wrap {
+    background: url("#{$img-path}login-bg.png") no-repeat center center #E5E4E4;
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    @include display(flex);
+    bottom: 0;
+    @include align-items(center);
+}
+.alert {
+  margin-bottom: 19px;
+  padding: 10px 15px;
+    margin-bottom: 20px;
+    border: 1px solid transparent;
+    //border-radius: 4px;
+}
+.alert-danger {
+    color: #a94442;
+    background-color: #f2dede;
+    border-color: #ebccd1;
+}

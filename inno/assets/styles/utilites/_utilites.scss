@@ -1,0 +1,90 @@
+
+.pull-left {
+  float: left;
+}
+.pull-right {
+  float: right;
+}
+
+// Alignment
+.text-left           { text-align: left; }
+.text-right          { text-align: right; }
+.text-center         { text-align: center; }
+.text-nowrp         { white-space: nowrap; }
+
+// Transformation
+.text-lower      { text-transform: lowercase; }
+.text-upper      { text-transform: uppercase; }
+.text-capz     { text-transform: capitalize; }
+.text-tf-no {text-transform: none}
+
+
+// Text Ellipisis
+
+.text-elips {
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+}
+.text-wrap {
+	word-wrap: break-word;
+}
+.clearfix {
+  @include clearfix();
+}
+// .disp-inblock {
+// 	vertical-align: middle;
+// 	display: inline-block;
+// }
+
+// Toggling content
+// -------------------------
+
+// Note: Deprecated .hide in favor of .hidden or .sr-only (as appropriate) in v3.0.1
+.hide {
+  display: none !important;
+}
+.show {
+  display: block !important;
+}
+.invisible {
+  visibility: hidden;
+}
+.text-hide {
+  @include text-hide();
+}
+
+
+// Hide from screenreaders and browsers
+//
+// Credit: HTML5 Boilerplate
+
+.hidden {
+  display: none !important;
+  visibility: hidden !important;
+}
+
+
+.vcenter {
+  @include display(flex);
+  @include align-items(center);
+  @include flex-wrap(wrap);
+}
+.center {
+  @include display(flex);
+  @include align-items(center);
+  @include justify-content(center);
+  @include flex-wrap(wrap);
+}
+.has-space-btwn {
+  @include display(flex);
+  @include justify-content(space-between);
+}
+// .vcenter {
+//   @include align-items(center);
+// }
+.valign {
+  @include display(flex);
+  @include align-items(center);
+  @include justify-content(space-between);
+}

@@ -1,0 +1,96 @@
+//
+// Typography
+// --------------------------------------------------
+
+
+// Headings
+// -------------------------
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 0;
+  font-family: map-fetch($heading, 'family');
+  font-weight: map-fetch($heading, 'weight');
+  line-height: map-fetch($heading, 'line-height');
+  color:map-fetch($heading, 'color');
+
+  // small,
+  // .small {   
+  //   font-weight: normal;
+  //   line-height: 1;
+  //   //color: $headings-small-color;
+  // }
+}
+// for generating headings h1, h2 -- h6
+@each $title, $size in map-get($heading, size) {
+  #{$title} {
+    font-size: $size;
+  }
+}
+
+// Body text
+// -------------------------
+
+p {
+  margin: 0;
+}
+
+// Emphasis & misc
+// -------------------------
+
+// Undo browser default styling
+cite {
+  font-style: normal;
+}
+
+// Lists
+// -------------------------
+
+// Unordered and Ordered lists
+ul, ol {
+  margin: 0;
+  padding: 0;
+  li {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+}
+
+// Description Lists
+dl {
+  margin-top: 0; // Remove browser default
+  margin-bottom: $line-height-computed;
+}
+dt,
+dd {
+  line-height: $line-height-base;
+}
+dt {
+  font-weight: bold;
+}
+dd {
+  margin-left: 0; // Undo browser default
+}
+
+// Misc
+// -------------------------
+
+// Abbreviations and acronyms
+abbr[title],
+// Add data-* attribute to help out our tooltip plugin, per https://github.com/twbs/bootstrap/issues/5257
+abbr[data-original-title] {
+  cursor: help;
+  //border-bottom: 1px dotted $abbr-border-color;
+}
+.initialism {
+  font-size: 90%;
+  text-transform: uppercase;
+}
+
+
+// Addresses
+address {
+  margin-bottom: $line-height-computed;
+  font-style: normal;
+  line-height: $line-height-base;
+}

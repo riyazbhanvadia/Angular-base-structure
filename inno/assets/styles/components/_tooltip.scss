@@ -1,0 +1,126 @@
+.tooltip-custom {
+    width: 274px;
+background: #fff;
+position: relative;
+font-size: 12px;
+box-shadow: 0 0 7px rgba(0, 0, 0,.3);
+color: #8b8a8a;
+border-radius: 4px;
+max-width: 300px;
+&.arrow-left{
+  &.has-arrow{
+    &:after,&:before{
+      margin-left: 0;
+      left: 33px;
+    }
+  }
+}
+&.arrow-right{
+  &.has-arrow{
+    &:after,&:before{
+      left: 75%;
+    }
+  }
+}
+  &.has-arrow{
+    &:after {
+      top: 100%;
+      left: 50%;
+      border: solid transparent;
+      content: " ";
+      height: 0;
+      width: 0;
+      position: absolute;
+      pointer-events: none;
+      border-color: rgba(0, 0, 0, 0);
+      border-top-color: #fff;
+      border-width: 16px;
+      margin-left: -16px;
+    }
+    &:before {
+      top: 100%;
+      left: 50%;
+      border: solid transparent;
+      content: " ";
+      height: 0;
+      width: 0;
+      position: absolute;
+      pointer-events: none;
+      border-color: rgba(0, 0, 0, 0);
+      border-top-color: rgba(0, 0, 0, 0.08);
+      border-width: 19px;
+      margin-left: -19px;
+    }
+  }
+  // .txt {
+  //   display: inline-block;
+  // }
+  .value {
+    @include font-family(bold);
+    color: #545454;
+  }
+  .value, .txt {
+    padding-bottom: 6px;
+  }
+}
+.tooltip-sm {
+  text-align: center;
+  width: 180px;
+  .tooltip-header {
+    @inlcude font-family(bold);
+    padding: 8px;
+  }
+  .tooltip-content {
+      padding: 8px;
+  }
+}
+.tooltip-list-cnt {
+  @include display(flex);
+}
+.tooltip-header {
+  padding: 12px;
+  background: #e5e4e4;
+  color: #737272;
+  border-radius: 4px 4px 0 0;
+}
+.tooltip-header-list {
+  .left {
+    max-width: 65%;
+    .txt:last-of-type {
+      padding: 0;
+    }
+    //border-right: 1px solid #cfcfcf;
+  }
+  .right {
+    max-width: 35%;
+    border-left: 1px solid #cfcfcf;
+    padding-left: 6px;
+    .value {
+      &:last-of-type {
+        padding: 0;
+      }
+    }
+  }
+}
+.tooltip-content {
+    padding: 12px;
+}
+.tooltip-content-list {
+  .list {
+    padding: 0 6px;
+    border-right: 1px solid #e2e1e1;
+    &:last-of-type {
+      border-right: none;
+    }
+    .value {
+      &:first-of-type {
+        color: #2cb8c8;
+      }
+    }
+  }
+}
+
+.tooltip-last{
+  left: auto;
+right: 0;
+}

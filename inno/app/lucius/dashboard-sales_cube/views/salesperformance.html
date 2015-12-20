@@ -1,0 +1,37 @@
+<ul class="tabs tabs-sm fixed">
+  <li class="tabs-item active">
+    <a class="tabs-link" data-target="#salescube-company-monthly" data-toggle="tab">Monthly</a>
+  </li>
+  <li class="tabs-item">
+    <a class="tabs-link" data-target="#salescube-company-quaterly" data-toggle="tab">Quaterly</a>
+  </li>
+  <li class="tabs-item">
+    <a class="tabs-link" data-target="#salescube-company-ytd" data-toggle="tab">YTD</a>
+  </li>
+</ul>
+<div class="tab-content">
+  <div class="tab-pane active" id="salescube-company-monthly">
+    <div class="block-content full">
+      <h3 class="blk-title">Sales Performance(Monthly)</h3>
+      <grouped-stackedbargraphsp ng-if="dataHasLoaded" class="graph-blk" graphname="salesperformancemonthy" id="salesperformancemme"></grouped-stackedbargraphsp>
+      <div class="legend"></div>
+      <input type="hidden" id="salesperformancemme" />
+    </div>
+  </div>
+  <div class="tab-pane" id="salescube-company-quaterly">
+    <div class="block-content full">
+      <h3 class="blk-title">Sales Performance(Quarterly)</h3>
+      <grouped-stackedbargraphsp ng-if="dataHasLoaded" class="graph-blk" graphname="salesperformancequarterly" id="salesperformanceqme"></grouped-stackedbargraphsp>
+      <div class="legend"></div>
+      <input type="hidden" id="salesperformanceqme" />
+    </div>
+  </div>
+  <div class="tab-pane" id="salescube-company-ytd">
+    <div class="block-content full">
+      <h3 class="blk-title">Sales Performance(YTD)</h3>
+      <linechart-graph ng-if="dataHasLoaded" class="graph-blk" graphname="salesperformanceytd" id="salesperformanceyme"></linechart-graph>
+      <div class="legend"></div>
+      <input type="hidden" id="salesperformanceyme" />
+    </div>
+  </div>
+</div>

@@ -1,0 +1,45 @@
+$btn-color: 			$brand-primary;
+$btn-border:			lighten($text-color, 90%);
+$btn-hover-bg:			$brand-primary;
+$btn-hover-color:      	#fff;
+$btn-hover-border: 		transparent;
+$btn-bg: 				transparent;
+
+$btn : (
+	color-scheme : (
+		default: (
+			color:              #3A474D,
+			bg:                 #93A2A9,
+			border:             #93A2A9,
+		),
+		primary: (
+			color:              #fff,
+			bg:                 #0066B3,
+			border:             #0066B3,
+		),
+		// info: (
+		// 	color:               #fff,
+		// 	bg:                  $brand-info,
+		// 	border:              darken($brand-info, 5%),
+		// ),
+		// warning: (
+		// 	color:              #fff,
+		// 	bg:                 $brand-warning,
+		// 	border:             darken($brand-warning, 5%),
+		// ),
+		// danger: (
+		// 	color:               #fff,
+		// 	bg:                  $brand-danger,
+		// 	border:              darken($brand-danger, 5%),
+		// ),
+	),
+	dimension : (
+		normal: (
+			padding:    				6px 20px,
+			font-size:           		13px,
+			line-height:                $line-height-base,
+			border-radius: 				0px,
+			text-transform: 			capitalize,
+		),
+	)
+);

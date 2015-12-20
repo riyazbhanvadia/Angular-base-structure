@@ -1,0 +1,38 @@
+<div data-ng-repeat='filter in filters track by $index' class='filters-btn-group' ng-class="{true: 'pull-right', false: ''}[filter.id === 'currencyflag']">
+  <div class='filters-dropdown'  ng-if="filter.id != 'currencyflag'" ng-disabled="filter.values.length === 0">
+    <button class='filters-btn btn' ng-disabled="filter.values.length === 0" name="{{filter.name}}" >{{$parent.$parent.$parent.filterCount1[filter.id]}}</button>
+    <button class='filters-btn-addon dropdown-toggle btn' ng-disabled="filter.values.length === 0" ng-click="toggledropdown($event)" >
+      <span class='arrow'></span>
+    </button>
+    <div class='dropdown-menu-wrap'>
+      <ul aria-labelledby='dropdownMenu' class='dropdown-menu scrollable-menu'>
+        <li ng-hide="filter.values.length === 0 || filter.values.length === 1">
+          <span class='dropdown-menu-itm checkbox-custom'><input data-ng-click='selectAll($event)' id='{{filter.id}}' type='checkbox' ng-checked="checkselectall(filter.id)">
+            <label class='lbl' for='{{filter.id}}'>Select All</label>
+          </span>
+        </li>
+        <li ng-repeat='option in filter.values track by $index'>
+          <span class='dropdown-menu-itm checkbox-custom'>
+            <input data-ng-click='setSelectedItem($event)' filterid='{{filter.id}}'  filtername='{{filter.name}}' id='{{option}}'  type='checkbox' ng-checked="checkFilter(option)">
+            <label class='lbl' for='{{option}}'>{{option}}</label>
+          </span>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="filters-dropdown" ng-if="filter.id === 'currencyflag'">
+    <button class='filters-btn'>{{currencyValue}}</button>
+    <button class='filters-btn-addon dropdown-toggle ' ng-click="toggledropdown($event)">
+      <span class='arrow'></span>
+    </button>
+    <div class='dropdown-menu-wrap'>
+      <ul aria-labelledby='dropdownMenu' class='dropdown-menu scrollable-menu '>
+        <li data-ng-repeat='option in filter.values'>
+          <span class='dropdown-menu-itm' ng-model="currencyValue" filterid='{{filter.id}}' filtername='{{filter.name}}' id='{{option}}' ng-click="changeCurrency($event);open=!open">
+            {{option}}
+          </span>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,12 @@
+<div ng-include="'app/layouts/loader/views/loader.html'" ng-if="loading"></div>
+<div ng-if="!loading">
+  <div class="filters-blk clearfix" ng-controller="AppCtrl">
+      <dropdown-multiselect  pre-selected="member.filters" model="selected_items" filters="filters"></dropdown-multiselect>
+  </div>
+<div class="clearfix blk grph">
+  <div class="col-xs-8 block-content" ng-include="'app/lucius/dashboard-sales_cube/views/salesfiguredonut.html'"></div>
+  <div class="col-xs-4 block-content" ng-include="'app/lucius/dashboard-sales_cube/views/breakupanddiscountdonut.html'"></div>
+</div>
+
+<div class="blk" ng-include="'app/lucius/dashboard-sales_cube/views/salesperformance.html'"></div>
+</div>

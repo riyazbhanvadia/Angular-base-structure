@@ -1,0 +1,23 @@
+<h3 class="blk-title">Break-up of Discounts and Returns(YTD)</h3>
+<div class="block-cnt">
+  <div class="col-8 grph1">
+    <donut-bargraph ng-if="dataHasLoaded" class="graph-blk" graphname= "breakupdonut" id="breakupdonutrh"></donut-bargraph>
+    <div class="legend"></div>
+  </div>
+  <div class="col-4">
+    <div class="sales-blk-wrap">
+      <div class="sales-blk has-space-btwn alt">
+        <div class="left">
+          <h4 class="title">Total Discounts(mn)</h4>
+          <div class="txt"><span class="currency" ng-bind-html="currencyType[selectedCurrency]"></span>{{breakupofdiscountsdonutdata.description[0].total}}</div>
+        </div>
+      </div>
+      <div class="sales-blk has-space-btwn alt">
+        <div class="left">
+          <h4 class="title">Total Returns(mn)</h4>
+          <div class="txt"><span class="currency" ng-bind-html="currencyType[selectedCurrency]"></span>{{breakupofdiscountsdonutdata.description[1].total}}</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,28 @@
+$config: (
+	icons: (
+		required: true,
+		components: (
+			logo: true,
+			msg: true,
+			ntf: true,
+			settings: true,
+			settings-sm: true,
+			lang: true,
+			search: true,
+			user: true,
+			maximize: true,
+			details: true,
+		),
+	),
+	btn: (
+		required: true,
+		components: (
+			default: true,
+			primary: true,
+			info: false,
+			warning: false,
+			danger: false,
+			menu: false,
+		),
+	),
+);	

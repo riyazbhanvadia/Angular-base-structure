@@ -1,0 +1,12 @@
+.close {
+    font-size: 23px;
+    line-height: 24px;
+    display: inline-block;
+    vertical-align: middle
+}
+%close-inside-heading {
+	position: absolute;
+    right: 20px;
+    top: 50%;
+    @include transform(translate(0, -50%));
+}

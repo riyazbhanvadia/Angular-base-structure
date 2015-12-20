@@ -1,0 +1,18 @@
+.icon {
+	display: inline-block;
+	vertical-align: top;
+	@include size(18px 18px);
+	background-repeat: no-repeat;
+	backgroud-position: 0 0;
+	//background: url("#{$img-common-path}#{$icon-img}") no-repeat 0 0;
+	@include retina-image($icon-img, 171px 100px, png, $icon-img-2x);
+}
+@each $component, $required in map-fetch($config, icons, components) {
+	@if $required {
+	  .icon-#{$component} {
+	    @each $property, $val in map-fetch($icon, $component) {
+	      #{$property}: $val;
+	    }
+	  }
+	} 
+}

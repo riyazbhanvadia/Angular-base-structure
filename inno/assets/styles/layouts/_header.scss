@@ -1,0 +1,193 @@
+.header {
+	background: $header-bg-color;
+    color: $header-txt-color;
+    @include transition(all .1s);
+    min-height: $header-height;
+    position: relative;
+    @include font-family(medium);
+    // &:before {
+    //     content: "";
+    //     left: 25px;
+    //     right: 25px;
+    //     bottom: 0;
+    //     background: #979797;
+    //     position: absolute;
+    //     height: 1px;
+    // }
+    &.fixed {
+        z-index: 1000;
+        left: 0;
+        right: 0;
+    	position: fixed;
+		top: 0;
+    	// background: $header-fixed-bg;
+    	// .box-shadow($header-shdw);
+    }
+}
+.logo {
+    > li {
+        margin-right: 23px;
+        position: relative;
+        @include font-family(medium);
+        &:nth-of-type(2) {
+            &:after {
+                background: #384250;
+                content: "";
+                height: 20px;
+                position: absolute;
+                right: -12px;
+                top: 15px;
+                width: 2px;
+            }
+        }
+    }
+    .link {
+        display: inline-block;
+        vertical-align: middle;
+        padding: 15px 0 15px;
+        text-align: center;
+        color: #384250;
+    }
+}
+// .search-box {
+//     position: relative;
+//     width: 300px;
+//     margin: 0 19px 0 0;
+//     .icon {
+//         position: absolute;
+//         right: 20px;
+//         top: 50%;
+//         @include transform(translate(0, -50%));
+//     }
+// }
+.header-menu {
+    > li {
+        &:last-of-type {
+            .link {
+                margin-right: 0;
+            }
+        }
+       
+    }
+    .link {
+        display: block;
+        margin: 9px 15px;
+        .txt {
+            padding-right: 5px
+        }
+    }
+}
+.header-dropdown {
+    min-width: 295px;
+    background: #fff;
+    color: #fff;
+    text-transform: capitalize;
+    border: none;
+    border-radius: 0;
+    .dropdown-menu {
+        max-height: none;
+        padding: 0 20px;
+        > li {
+            border-bottom: 1px solid rgba(151, 151,151,.3);
+            > a {
+                color: #384250;
+                cursor: pointer
+            }
+            .dropdown-menu-itm {
+                color: #384250;
+                opacity: .5;
+                @include font-family(medium);
+
+                &:hover, &:focus {
+                    background: #f5f5f5;
+                    color: #384250;
+                }
+            }
+            
+        }
+    }
+    &.pull-right {
+        text-align: left;
+        top: 46px;
+        right: -14px;
+    }
+    &.has-open-effect {
+        @include transform-origin(88% -40px);
+    }
+    &.user {
+        &.pull-right {
+            right: -14px;
+            text-align: left;
+            top: 58px;
+        }
+    }
+}
+.dropdown-menu {
+    &.sub-menu {
+        border-top: 1px solid rgba(151, 151,151,.3);
+        display: block;
+        text-transform: capitalize;
+        > li{
+            &:last-of-type {
+                border-bottom: none;
+            }
+        }
+    }
+}
+.navigation {
+    @include display(flex);
+    // > li {
+    //  display: inline-block;
+    //  vertical-align: middle;
+    // }
+    &.stacked {
+        @include display(block);
+    }
+}
+// .ntf-dropdown {
+//     min-width: 883px;
+//     max-width: 883px;
+//     left: -660px;
+//     top: 54px;
+//     @include font-family(regular);
+//     border-radius: 4px;
+//     .table {
+//         color: rgba(0, 0, 0, .5);  
+//     }
+//     .dropdown-menu {
+//         max-height: none;
+//     }
+//     .table-head {
+//         background: #D9DCDD;
+//         border: 1px solid #979797;
+//         color: #464849;
+//         font-size: 14px;
+//         border-radius: 4px 4px 0 0;
+//         .table-col {
+//             padding-top: 5px;
+//             padding-bottom: 5px;
+//         }
+//     }
+//     &.has-arrow {
+//         &:after {
+//             border-color: transparent transparent #D9DCDD;
+//             left: 679px;
+//             top: -8px;
+//         }
+//         &:before {
+//             @extend %has-arrow:after;
+//             border-color: transparent transparent #979797;
+//             border-width: 0 10px 10px;
+//             left: 678px;
+//             top: -9px;
+//         }
+//     }
+//     &.has-open-effect {
+//         @include transform-origin(78% -40px);
+//     }
+//     .table-content-list-row {
+//         &:last-of-type {
+//             border-bottom: none;
+//         }
+//     }
+// }

@@ -1,0 +1,25 @@
+.legend {
+	color: #8b8a8a;
+	font-size: 12px;
+	label{
+	    width: 10px;
+	    height: 10px;
+	    margin: 0 5px 0 0;
+	    border-radius: 50%;
+	    &:hover{
+	      cursor: pointer;
+	    }
+	}
+	span{
+	    &:hover{
+	      cursor: pointer;
+	    }
+	}
+}
+.legend-item {
+	padding: 0 20px 0 0;
+	display: inline-block;
+	&.disabled{
+		opacity: 0.5;
+	}
+}

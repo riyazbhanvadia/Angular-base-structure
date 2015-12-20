@@ -1,0 +1,88 @@
+
+<h2>welcome role mangement</h2>
+<div class="clo-xs-12"  ng-show="!addrole">
+      <form name="roleForm" data-action="{{action}}" ng-submit="submitForm()" novalidate>
+          <!-- RoleName -->
+          <div class="form-group" ng-class="{ 'has-error' : roleForm.name.$invalid && !roleForm.name.$pristine }">
+              <label>Role Name</label>
+              <input type="text" name="name" ng-model="roleformData.name" required>
+              <p ng-show="roleForm.name.$invalid && !roleForm.name.$pristine" class="help-block">You name is required.</p>
+          </div>
+
+          <div class="form-group" ng-class="{ 'has-error' : roleForm.dashboard.$invalid && !roleForm.dashboard.$pristine }">
+              <label>Dashboard</label>
+              <label class="checkbox-inline">
+                <input type="checkbox" name="dashboard" ng-model="roleformData.dashboard1" required> Dashboard1
+              </label>
+
+              <label class="checkbox-inline">
+                <input type="checkbox" name="dashboard" ng-model="roleformData.dashboard2" required> Dashboard2
+              </label>
+
+              <label class="checkbox-inline">
+                <input type="checkbox" name="dashboard" ng-model="roleformData.dashboard3" required> Dashboard3
+              </label>
+          </div>
+
+          <div class="form-group" ng-class="{ 'has-error' : roleForm.tab.$invalid && !roleForm.tab.$pristine }">
+              <label>Tabs</label>
+              <label class="checkbox-inline">
+                <input type="checkbox" name="tab" ng-model="roleformData.tabs1" required> Tab1
+              </label>
+
+              <label class="checkbox-inline">
+                <input type="checkbox" name="tab" ng-model="roleformData.tabs2" required> Tab2
+              </label>
+
+              <label class="checkbox-inline">
+                <input type="checkbox" name="tab" ng-model="roleformData.tabs3" required> Tab3
+              </label>
+          </div>
+
+          <div class="form-group" ng-class="{ 'has-error' : roleForm.territory.$invalid && !roleForm.territory.$pristine }">
+              <label>Territory</label>
+              <label class="checkbox-inline">
+                <input type="checkbox" name="territory" ng-model="roleformData.territory1" required> Territory1
+              </label>
+
+              <label class="checkbox-inline">
+                <input type="checkbox" name="territory" ng-model="roleformData.territory2" required> Territory2
+              </label>
+
+              <label class="checkbox-inline">
+                <input type="checkbox" name="territory" ng-model="roleformData.territory3" required> Territory3
+              </label>
+          </div>
+
+          <button type="submit" class="btn btn-primary">Submit</button>
+          <button  type="reset" class="btn btn-primary" ng-click="addrole=true;roleformData={}">Cancel</button>
+      </form>
+</div>
+<table ng-show="addrole" ng-model="rolesData" class="table table-striped table-bordered table-hover editable-table">
+    <tr>
+        <th>Rolename</th>
+        <th>Dashboard</th>
+        <th>Tabs</th>
+        <th>Territory</th>
+        <th>Edit</th>
+    </tr>
+    <tr data-ng-repeat="circle in rolesData track by $index">
+        <td>
+            <span>{{circle.name}}</span>
+        </td>
+        <td>
+            <span data-ng-repeat="dash in circle.dashboard">{{dash.name}} {{$last ? '' : ', '}}</span>
+        </td>
+        <td>
+            <span data-ng-repeat="tabs in circle.tabs">{{tabs.name}} {{$last ? '' : ', '}}</span>
+        </td>
+        <td>
+            <span data-ng-repeat="ter in circle.territory">{{ter.name}} {{$last ? '' : ', '}}</span>
+        </td>
+        <td>
+            <button type="button" class="btn btn-primary" ng-click="editRole($index)">edit</button>
+        </td>
+    </tr>
+
+</table>
+<div class="clo-xs-12" ng-init="addrole=true"><button class="btn btn-primary" ng-show="addrole" ng-click="addrole=false">Add Role</button></div>

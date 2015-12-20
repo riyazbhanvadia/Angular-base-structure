@@ -1,0 +1,100 @@
+.checkbox-custom {
+	// margin-top: 10px;
+	// margin-bottom: 20px;
+	input[type="checkbox"] {
+		opacity: 0;
+		position: absolute;
+		&:checked + {
+			.lbl {
+				background: #F9F8FA;
+				&:before {
+					color: rgb(134,142,152);
+				    border-style: solid;
+				    width: 15px;
+				    height: 6px;
+				    border-width: 0.2em 0.2em 0 0;
+				    content: '';
+				    display: inline-block;
+				    left: 14px;
+				    position: absolute;
+				    top: 13px;
+					@include transform (rotate(135deg));
+					z-index: 2;
+				}
+			}
+		}
+	}
+	.lbl {
+		position: relative;
+		padding:10px 10px 10px 35px;
+		display: block;
+		margin: 0;
+		&:after {
+			    content: "";
+			    display: inline-block;
+			    width: 15px;
+			    height: 15px;
+			    border: 1px solid #868e98;
+			    position: absolute;
+			    left: 10px;
+			    bottom: 0;
+			    top: 12px;
+			    border-radius: 2px;
+			    // background-color: rgb(144,142,164);
+			    // box-shadow: inset 0px 2px 3px 0px rgba(0, 0, 0, .3), 0px 1px 0px 0px rgba(255, 255, 255, .8);
+		}
+	}
+
+}
+.radio-custom {
+	margin-top: 10px;
+	margin-bottom: 20px;
+	input[type="radio"] {
+		opacity: 0;
+		&:checked + {
+			.lbl {
+				color: #fff;
+				&:before {
+					// color: rgb(134,142,152);
+				 //    border-style: solid;
+				 //    width: 15px;
+				 //    height: 6px;
+				 //    border-width: 0.2em 0.2em 0 0;
+				 //    content: '';
+				 //    display: inline-block;
+				 //    left: 7px;
+				 //    position: absolute;
+				 //    top: 2px;
+					// @include transform (rotate(135deg));
+					// z-index: 2;
+					content: "";
+					position: absolute;
+					background: rgb(134,142,152);
+					width: 10px;
+					height: 10px;
+					border-radius: 50%;
+					left: 4px;
+					top: 4px;
+				}
+			}
+		}
+	}
+	.lbl {
+		position: relative;
+		padding-left: 35px;
+		&:after {
+			    content: "";
+			    display: inline-block;
+			    width: 18px;
+			    height: 18px;
+			 	border: 1px solid rgb(134,142,152);
+			    position: absolute;
+			    left: 0;
+			    bottom: 0;
+			    border-radius: 50%;
+			    // background-color: rgb(144,142,164);
+			    // box-shadow: inset 0px 2px 3px 0px rgba(0, 0, 0, .3), 0px 1px 0px 0px rgba(255, 255, 255, .8);
+		}
+	}
+
+}

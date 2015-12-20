@@ -1,0 +1,113 @@
+<h4>User Management</h4>
+<div ng-show="useradd">
+   <table class="table table-bordered table-hover table-condensed">
+    <tr style="font-weight: bold">
+      <td style="width:15%">Firstname</td>
+      <td style="width:15%">Lastname</td>
+      <td style="width:15%">E-mail</td>
+      <td style="width:15%">Contact</td>
+      <td style="width:15%">UserName</td>
+      <td style="width:15%">Role</td>
+      <td style="width:25%">Edit</td>
+    </tr>
+    <tr ng-repeat="user in users track by $index">
+      <td>
+        <!-- editable username (text with validation) -->
+        <span editable-text="user.firstname" e-name="firstname" e-form="rowform"  e-required>
+          {{ user.firstname || 'empty' }}
+        </span>
+      </td>
+      <td>
+        <!-- editable username (text with validation) -->
+        <span editable-text="user.lastname" e-name="lastname" e-form="rowform"  e-required>
+          {{ user.lastname || 'empty' }}
+        </span>
+      </td>
+      <td>
+        <!-- editable email (select-local) -->
+        <span editable-text="user.email" e-name="email" e-form="rowform" >
+          {{ user.email }}
+        </span>
+      </td>
+      <td>
+        <!-- editable contact (select-local) -->
+        <span editable-text="user.contact" e-name="contact" e-form="rowform" >
+          {{ user.contact }}
+        </span>
+      </td>
+      <td>
+        <!-- editable username (select-local) -->
+        <span editable-text="user.username" e-name="username" e-form="rowform" >
+          {{ user.username }}
+        </span>
+      </td>
+      <td>
+        <!-- editable role (select-remote) -->
+        <span editable-select="user.role.name" onshow="loadRoles()"  e-name="role"  e-form="rowform" e-ng-options="role.id as role.name for role in roles">
+          {{ showRoles(user) }}
+        </span>
+      </td>
+      <td style="white-space: nowrap">
+        <!-- form -->
+        <form editable-form name="rowform" onbeforesave="saveUser($data, user.id)" ng-show="rowform.$visible" class="form-buttons form-inline" shown="inserted == user">
+          <button type="submit" ng-disabled="rowform.$waiting" class="btn btn-primary">
+            save
+          </button>
+          <!-- <button ng-if="$last" type="button" ng-disabled="rowform.$waiting" ng-click="cancelAdvice(rowform,$index)" class="btn btn-default">
+            cancel
+          </button> -->
+          <button type="button" ng-disabled="rowform.$waiting" ng-click="rowform.$cancel()" class="btn btn-default">
+            cancel
+          </button>
+        </form>
+        <div class="buttons" ng-show="!rowform.$visible">
+          <button class="btn btn-primary glyphicon glyphicon-pencil" ng-click="rowform.$show()"></button>
+          <button class="btn btn-danger glyphicon glyphicon-trash" ng-click="removeUser($index)"></button>
+        </div>
+      </td>
+    </tr>
+  </table>
+
+  <button class="btn btn-default" ng-click="useradd=false">Add User</button>
+</div>
+
+<div class="" ng-show="!useradd">
+  <div class="col-md-6">
+    <!-- <div ng-show="error" class="alert alert-danger">{{errorMessage}}</div> -->
+    <form class="form" ng-submit="addUser()">
+      <div class="form-group">
+        <label>Username</label>
+        <input type="text" class="form-control" name="username" ng-model="registerForm.username" required>
+      </div>
+      <div class="form-group">
+        <label>Firstname</label>
+        <input type="text" class="form-control" name="firstname" ng-model="registerForm.firstname" required>
+      </div>
+      <div class="form-group">
+        <label>Lastname</label>
+        <input type="text" class="form-control" name="lastname" ng-model="registerForm.lastname" required>
+      </div>
+      <div class="form-group">
+        <label>Password</label>
+          <input type="password" class="form-control" name="password" ng-model="registerForm.password" required>
+        </div>
+        <div class="form-group">
+          <label>Email</label>
+            <input type="email" class="form-control" name="email" ng-model="registerForm.email" required>
+          </div>
+          <div class="form-group">
+            <label>Contact</label>
+              <input type="tel" class="form-control" name="contact" ng-model="registerForm.contact" required>
+            </div>
+
+        <div class="form-group">
+          <label>Role</label>
+            <input type="text" class="form-control" name="role" ng-model="registerForm.role" >
+          </div>
+        <div>
+          <button type="submit" class="btn btn-default" >Save</button>
+          <button type="button" ng-click="useradd=true" class="btn btn-default" >Cancel</button>
+        </div>
+    </form>
+  </div>
+</div>

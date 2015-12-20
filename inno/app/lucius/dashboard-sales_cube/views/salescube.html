@@ -1,0 +1,24 @@
+<div ng-controller="salesCtrl">
+  <div class="tabs-wrap fixed">
+    <div class="container">
+      <ul class="tabs" data-tabs="tabs" id="tabs">
+        <li ng-class="{active: active=='company'}" class="tabs-item">
+          <a ng-click='fnChangeTab();active="company"' class="tabs-link" ui-sref="home.salescube.company">Company</a>
+        </li>
+        <li ng-class="{active: active=='NDD'}" class="tabs-item">
+          <a ng-click='fnChangeTab();active="NDD"' class="tabs-link" ui-sref="home.salescube.ndd">Neurology</a>
+        </li>
+        <li  ng-class="{active: active=='RH'}"  class="tabs-item">
+          <a ng-click='fnChangeTab();active="RH"'  class="tabs-link" ui-sref="home.salescube.rh">Fertility</a>
+        </li>
+        <li ng-class="{active: active=='GH'}" class="tabs-item">
+          <a ng-click='fnChangeTab();active="GH"' class="tabs-link" ui-sref="home.salescube.gh">Endocrinology</a>
+        </li>
+        <li ng-class="{active: active=='FT'}" class="tabs-item">
+          <a ng-click='fnChangeTab();active="FT"' class="tabs-link" ui-sref="home.salescube.ft">Fertility Tech.</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="container clearfix" ui-view="salescube-main"></div>
+</div>

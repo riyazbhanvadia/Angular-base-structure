@@ -1,0 +1,23 @@
+@function map-fetch($map, $keys...) {
+  @each $key in $keys {
+    $map: map-get($map, $key);
+  }
+ 
+  @return $map;
+};
+
+@function color($key...) {
+	@return map-fetch($color, $key...);
+};
+
+@function map-extend($obj, $ext-obj) {
+  @return map-merge($obj, $ext-obj);
+};
+
+@function zindex($key...) {
+	@return map-fetch($zindex, $key...);
+};
+
+@mixin square($size) {
+	@include size($size $size);
+}

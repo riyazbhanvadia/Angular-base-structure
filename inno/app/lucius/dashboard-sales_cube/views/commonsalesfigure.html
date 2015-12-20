@@ -1,0 +1,32 @@
+  <div class="sales-blk-wrap">
+    <div class="sales-blk has-space-btwn sales" ng-class="{true:'sply-down',false:'sply-up'}[salesfigureData.data.description[0].level === negative]">
+      <div class="left">
+        <h4 class="title">Total Gross Sales(mn)</h4>
+        <div class="txt"><span class="currency" ng-bind-html="currencyType[selectedCurrency]"></span>{{salesfigureData.description[0].total}}</div>
+      </div>
+      <div class="right">
+        <h4 class="title">SPLY</h4>
+        <div class="sply-txt"><i class="sales-arrow"></i>{{salesfigureData.description[0].sply}}</div>
+      </div>
+    </div>
+    <div class="sales-blk has-space-btwn sales" ng-class="{true:'sply-down',false:'sply-up'}[salesfigureData.data.description[1].level === negative]">
+      <div class="left">
+        <h4 class="title">Total Net Sales(mn)</h4>
+        <div class="txt"><span class="currency" ng-bind-html="currencyType[selectedCurrency]"></span>{{salesfigureData.description[1].total}}</div>
+      </div>
+      <div class="right">
+        <h4 class="title">SPLY</h4>
+        <div class="sply-txt"><i class="sales-arrow"></i>{{salesfigureData.description[1].sply}}</div>
+      </div>
+    </div>
+    <div class="sales-blk has-space-btwn sales" ng-class="{true:'sply-down',false:'sply-up'}[salesfigureData.data.description[2].level === negative]">
+      <div class="left">
+        <h4 class="title">Total Discounts & Returns(mn)</h4>
+        <div class="txt"><span class="currency" ng-bind-html="currencyType[selectedCurrency]"></span>{{salesfigureData.description[2].total}}</div>
+      </div>
+      <div class="right">
+        <h4 class="title">SPLY</h4>
+        <div class="sply-txt"><i class="sales-arrow"></i>{{salesfigureData.description[2].sply}}</div>
+      </div>
+    </div>
+  </div>

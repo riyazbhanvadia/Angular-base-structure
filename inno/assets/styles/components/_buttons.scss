@@ -1,0 +1,132 @@
+@mixin button-variant($map, $type) {
+  @if $type == menu {
+    @include btn-menu($map);
+  }
+  @elseif $type == link {
+     @include btn-link($map);
+  }
+  @else {
+    color: map-fetch($map, color);
+    background-color: map-fetch($map, bg);
+    border-color: map-fetch($map, border);
+
+    &:hover,
+    &:focus,
+    //&.focus,
+    &:active,
+    &.active {
+      color: map-fetch($map, color);
+      background-color: darken(map-fetch($map, bg), 10%);
+      border-color: darken(map-fetch($map, border), 12%);
+    }
+    &.disabled,
+    &[disabled], {
+      &,
+      &:hover,
+      &:focus,
+      //&.focus,
+      &:active,
+      &.active {
+        background-color: map-fetch($map, bg);
+            border-color: map-fetch($map, border);
+      }
+    }
+  }
+}
+
+// Button sizes
+@mixin button-size($map: ()) {
+  @each $key , $value in $map {
+    #{$key}: $value;
+  }
+}
+
+
+
+//
+// Buttons
+// --------------------------------------------------
+
+
+// Base styles
+// --------------------------------------------------
+%btn-base {
+   //border: 1px solid $btn-border;
+    color: $btn-color;
+    @include font-family(medium);
+    display: inline-block;
+    vertical-align: middle;
+    margin-bottom: 0; // For input.btn
+    text-align: center;
+    cursor: pointer;
+    text-transform: map-fetch($btn, dimension, normal, text-transform);
+    background-image: none; // Reset unusual Firefox-on-Android default style; see https://github.com/necolas/normalize.css/issues/214
+    background-color: $btn-bg;
+    white-space: nowrap;
+    font-size: 13px;
+    border-radius: 4px;
+    border:1px solid transparent;
+}
+
+.btn {
+  @extend %btn-base;
+  @include button-size(map-fetch($btn, dimension, normal));
+  @include user-select(none);
+  &:active,
+  &.active,
+  &:hover,
+  &:focus {
+    outline: 0;
+    background-color: $btn-hover-bg;
+    color: $btn-hover-color;
+    border-color: $btn-hover-border;
+  }
+  &.disabled,
+  &[disabled] {
+    cursor: not-allowed;
+    pointer-events: none; // Future-proof disabling of clicks
+    @include opacity(.65);
+    box-shadow: none;
+    background: #E5E4E4;
+  }
+}
+
+
+// Alternate buttons
+// --------------------------------------------------
+
+@each $component, $required in map-fetch($config, btn, components) {
+  @if $required {
+     .btn-#{$component} {
+        $type: #{$component};
+        @include button-variant(map-fetch($btn, color-scheme, $component), $type);
+    }
+  }
+}
+
+
+
+
+// Block button
+// --------------------------------------------------
+
+.btn-block {
+  display: block;
+  width: 100%;
+}
+
+// Vertically space out multiple block buttons
+.btn-block + .btn-block {
+  margin-top: 5px;
+}
+.btn + .btn {
+  margin-left: 10px;
+}
+// Specificity overrides
+input[type="submit"],
+input[type="reset"],
+input[type="button"] {
+  &.btn-block {
+    width: 100%;
+  }
+}

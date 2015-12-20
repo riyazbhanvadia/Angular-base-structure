@@ -1,0 +1,8 @@
+<h3 class="blk-title">Sales Figures(YTD)</h3>
+<div class="block-cnt">
+	<div class="col-8">
+	    <donut-bargraph ng-if="dataHasLoaded" class="graph-blk" graphname= "salesfiguredonut" id="salesfiguredonutrh"></donut-bargraph>
+	    <div class="legend"></div>
+	</div>
+	<div class="col-4" ng-include="'app/lucius/dashboard-sales_cube/views/commonsalesfigure.html'"></div>
+</div>

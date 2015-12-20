@@ -1,0 +1,50 @@
+//** Unit-less `line-height` for use in components like buttons.
+$line-height-base:        1.428571429; // 20/14
+//** Computed "line-height" (`font-size` * `line-height`) for use with `margin`, `padding`, etc.
+$font-size-base: 14px;
+$line-height-computed:    floor(($font-size-base * $line-height-base)); // ~20px
+
+$text-color : #808385;
+//== Scaffolding
+//
+//## Settings for some of the most global styles.
+
+//** Background color for `<body>`.
+$body-bg:              #fff; //#fff;
+//** Global text color on `<body>`.
+$text-color:            #545454;
+
+
+$white:                  #ffffff;
+$gray-darker:            lighten(#000, 13.5%); // #222
+$gray-dark:              lighten(#000, 20%);   // #333
+$gray:                   lighten(#000, 33.5%); // #555
+$gray-light:             lighten(#000, 46.7%); // #777
+$gray-lighter:           lighten(#000, 93.5%); // #eee
+
+$brand-primary:         #0066B3; //ff6c55; 
+$brand-success:         #5BCAA4;
+$brand-info:            #5bc0de;
+$brand-warning:         #f0ad4e;
+$brand-danger:          #d9534f;
+
+
+//** Global textual link color.
+$link-color:            #464849;
+//** Link hover color set via `darken()` function.
+$link-hover-color:      darken($link-color, 15%);
+$body-property: (
+    font-family: getFontFamily(regular),
+    font-size: $font-size-base,
+    line-height: $line-height-base,
+    color: $text-color,
+    background-color: $body-bg,
+    font-weight: normal,
+     font-style: normal,
+    -webkit-font-smoothing: antialiased,
+    -moz-osx-font-smoothing: grayscale,
+    height: 100%,
+    position: relative,
+  );
+
+$container-lg: 1200px;

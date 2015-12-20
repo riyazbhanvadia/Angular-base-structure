@@ -1,0 +1,199 @@
+//base styles
+@import "base/normalize";
+@import "mixins/mixins";
+@import "mixins/functions";
+@import "variables/variables";
+@import "base/scafolding";
+@import "base/type";
+
+@import "utilites/utilites";
+
+
+//vendor
+@import "vendor/xeditable";
+
+//components
+
+@import "components/grid";
+@import "components/dropdown";
+@import "components/c3";
+@import "components/buttons";
+@import "components/chevron";
+@import "components/forms";
+@import "components/icons";
+@import "components/close";
+@import "components/block";
+@import "components/tabs";
+@import "components/tables";
+@import "components/login";
+@import "components/legend";
+@import "components/custom-form";
+@import "components/tooltip";
+@import "components/filters";
+@import "components/sales";
+@import "components/popovers";
+
+//layouts
+@import "layouts/header";
+@import "layouts/footer";
+@import "layouts/sidebar";
+
+.page-blk {
+  padding-top: 100px;
+  min-height: 100%;
+}
+.col-8 {
+  width: 55%;
+  //float: left
+}
+.col-4 {
+  width: 45%;
+  //float: right;
+}
+.currency {
+  padding-right: 2px;
+}
+// .grph {
+//   .c3-axis-y .tick, .c3-axis.c3-axis-y {
+//    display: none;
+//    width: 0 !important;
+//   }
+// }
+// .grph1 {
+//   .c3-legend-item {
+//     &:nth-of-type(1),
+//     &:nth-of-type(2),
+//     &:nth-of-type(3),
+//     &:nth-of-type(4),
+//     &:nth-of-type(5) {
+//       display: none;
+//       width: 0 !important;
+//       height: 0 !important;
+//       .c3-legend-item-event, .c3-legend-item-tile, text {
+//         display: none;
+//         width: 0 !important;
+//         height: 0 !important;
+//       }
+//     }
+//   }
+// }
+// .col-6 {
+// 	width: 50%;
+// 	float: left;
+// 	padding: 0 5px 0 0;
+// 	+ .col-6 {
+// 		padding: 0 0 0 5px;
+// 	}
+// }
+// .main-content {
+// 	padding: 142px 20px 20px;
+// }
+// .summary-blk {
+// 	.block-content {
+// 		height: 350px;
+// 	}
+// }
+// @media (max-width: 1280px) {
+// 	.container {
+// 		width: 1280px;
+// 	}
+//}
+.radio-filter {
+	display: block;
+}
+// .page-body {
+// 	padding-left: 225px;
+// }
+// #wrapper-parent {
+// 	padding-left: 250px;
+// }
+// .main-container {
+//     clear: both;
+//     display: block;
+//     float: left;
+//     width: 100%;
+// }
+
+.calls-offered{
+	.domain{
+		fill: white;
+		stroke:white;
+	}
+	.c3-ygrid{
+		stroke : #ebebeb;
+	}
+}
+
+
+.tab-pane{
+	display: none;
+	&.active{
+		display: block;
+	}
+}
+
+
+.bargraphdirective , .graph-blk {
+	display: block;
+}
+.table {width: 100% }
+form[editable-form] > div {margin: 10px 0;}
+
+
+.axis path,
+.axis line {
+  fill: none;
+  stroke: #000;
+  shape-rendering: crispEdges;
+}
+
+.bar {
+  fill: steelblue;
+}
+
+.x.axis path {
+  display: none;
+}
+
+.c3-xgrid-line.grid4 line {
+    stroke: lightgray;
+    z-index: -10;
+}
+
+  .axis path,
+  .axis line{
+    fill: none;
+    stroke: black;
+  }
+
+  .line{
+    fill: none;
+    stroke: blue;
+    stroke-width: 2px;
+  }
+
+  .tick text{
+    font-size: 12px;
+  }
+
+  .tick line{
+    opacity: 0.2;
+  }
+
+#salescube-company-ytd{
+  .c3-circle {
+    fill: white !important;
+    stroke: blue;
+  }
+  g.c3-shapes.c3-shapes-Net-Sales-LY-.c3-circles.c3-circles-Net-Sales-LY-,g.c3-shapes.c3-shapes-OP-Target.c3-circles.c3-circles-OP-Target{
+     .c3-circle{
+        fill: transparent !important;
+        stroke: transparent !important;
+     }
+  }
+}
+
+
+.c3-xgrid-focus{
+  display: none;
+}

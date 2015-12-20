@@ -1,0 +1,49 @@
+<div ng-include="'app/layouts/loader/views/loader.html'" ng-if="loading"></div>
+<div ng-if="!loading">
+<div class="filters-blk" ng-controller="AppCtrl">
+    <dropdown-multiselect  pre-selected="member.filters" model="selected_items" filters="filters"></dropdown-multiselect>
+</div>
+<!-- <div class="col-xs-6">
+  <timeseries-barcombination></timeseries-barcombination>
+</div> -->
+<div class="clearfix blk grph">
+  <div class="col-xs-8 block-content">
+    <h3 class="blk-title">Sales Figures(YTD)</h3>
+    <div class="block-cnt">
+      <div class="col-8 salesfigures">
+        <grouped-stackedbargraph ng-if="dataHasLoaded" class="graph-blk" graphname="salesfigures" id="salesfigures"></grouped-stackedbargraph>
+        <div class="legend"></div>
+        <input type="hidden" id="salesfigures" />
+      </div>
+      <div class="col-4" ng-include="'app/lucius/dashboard-sales_cube/views/commonsalesfigure.html'"></div>
+    </div>
+</div>
+<div class="col-xs-4 block-content">
+<h3 class="blk-title">Break-up of Discounts and Returns(YTD)</h3>
+  <div class="block-cnt">
+    <div class="col-8 grph1">
+      <grouped-stackedbargraph ng-if="dataHasLoaded" class="graph-blk" graphname="breakupofdiscounts" id="breakupgraph"></grouped-stackedbargraph>
+      <div class="legend"></div>
+      <input type="hidden" id="breakupgraph" />
+    </div>
+    <div class="col-4">
+      <div class="sales-blk-wrap">
+        <div class="sales-blk has-space-btwn alt">
+          <div class="left">
+            <h4 class="title">Total Discounts(mn)</h4>            
+            <div class="txt"><span class="currency" ng-bind-html="currencyType[selectedCurrency]"></span>{{breakupofdiscountsdata.data.description[0].total| number:0}}</div>
+          </div>
+        </div>
+        <div class="sales-blk has-space-btwn alt">
+          <div class="left">
+            <h4 class="title">Total Returns(mn)</h4>
+            <div class="txt"><span class="currency" ng-bind-html="currencyType[selectedCurrency]"></span>{{breakupofdiscountsdata.data.description[1].total| number:0}}</div>
+          </div>
+        </div>
+      </div>
+      </div>
+  </div>
+  </div>
+</div>
+<div class="blk" ng-include="'app/lucius/dashboard-sales_cube/views/salesperformance.html'"></div>
+</div>

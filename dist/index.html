@@ -1,0 +1,86 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <meta name="description" content="">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
+    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+    <!-- build:css(.) styles/vendor.css -->
+   
+    <!-- endbuild -->
+    <!-- build:css(.tmp) styles/main.css -->
+    <link rel="stylesheet" href="styles/main.css">
+    <!-- endbuild -->
+    <!-- <base href="/"> -->
+  </head>
+  <body ng-app="innoApp">
+        <div class="page-blk">
+            <header ui-view="header"></header>
+            <div ui-view="mainview" ng-controller="MainCtrl">
+            </div>
+        </div>
+        <footer id="mainFooter" ui-view="footer">
+        </footer>
+
+    <!-- build:js(.) scripts/vendor.js -->
+        <script src="/app/vendor/aangular/angular.min.js"></script>
+        <script src="/app/vendor/aangular/jquery.min.js"></script>
+        <script src="/app/vendor/angular-animate.min.js"></script>
+        <script src="/app/vendor/angular-cookies.min.js"></script>
+        <script src="/app/vendor/angular-jwt.min.js"></script>
+        <script src="/app/vendor/angular-resource.min.js"></script>
+        <script src="/app/vendor/angular-route.min.js"></script>
+        <script src="/app/vendor/angular-sanitize.min.js"></script>
+        <script src="/app/vendor/angular-storage.min.js"></script>
+        <script src="/app/vendor/angular-ui-router.min.js"></script>
+        <script src="/app/vendor/angularjs-dropdown-multiselect.js"></script>
+        <script src="/app/vendor/bootstrap.min.js"></script>
+        <script src="/app/vendor/c3.min.js"></script>
+        <script src="/app/vendor/d3.min.js"></script>
+        <script src="/app/vendor/d3plus.full.min.js"></script>
+        <script src="/app/vendor/lodash.min.js"></script>
+        <script src="/app/vendor/xeditable.min.js"></script>
+    <!-- endbuild -->
+
+        <!-- build:js({.tmp,app}) scripts/scripts.js -->
+
+
+
+
+        <!--include everything in app/ except files directly inside scripts (without subdirectory) -->
+        <script src="/app/routes/route.js"></script>
+        <script src="/app/layouts/header/controller/header.js"></script>
+        <script src="/app/auth/controller/changepassword.js"></script>
+        <script src="/app/auth/controller/forgotpassword.js"></script>
+        <script src="/app/auth/controller/login.js"></script>
+        <script src="/app/auth/controller/logout.js"></script>
+        <script src="/app/auth/controller/register.js"></script>
+        <script src="/app/admin/controller/role.js"></script>
+        <script src="/app/admin/controller/user.js"></script>
+        <script src="/app/lucius/common/controller/about.js"></script>
+        <script src="/app/lucius/common/controller/header.js"></script>
+        <script src="/app/lucius/common/controller/main.js"></script>
+        <script src="/app/lucius/common/directives/donutBarGraph/donutBarGraphDirective.js"></script>
+        <script src="/app/lucius/common/directives/groupedstackedBarGraph/groupedStackedBarGraphDirective.js"></script>
+        <script src="/app/lucius/common/directives/groupedstackedBarGraphSP/groupedStackedBarGraphSPDirective.js"></script>
+        <script src="/app/lucius/common/directives/lineChartGraph/lineChartGraphDirective.js"></script>
+        <script src="/app/lucius/common/directives/multiselectFilterDirective/multiselectDropdownDirective.js"></script>
+        <script src="/app/lucius/common/directives/timeSeriesBarCombination/timeSeriesBarCombinationDirective.js"></script>
+        <script src="/app/lucius/common/factories/ajaxFactory.js"></script>
+        <script src="/app/lucius/common/factories/dbConfigFactory.js"></script>
+        <script src="/app/lucius/common/services/service.js"></script>
+        <script src="/app/lucius/dashboard-sales_cube/controller/company.js"></script>
+        <script src="/app/lucius/dashboard-sales_cube/controller/dropdownFilterController.js"></script>
+        <script src="/app/lucius/dashboard-sales_cube/controller/endocrinology.js"></script>
+        <script src="/app/lucius/dashboard-sales_cube/controller/fertility.js"></script>
+        <script src="/app/lucius/dashboard-sales_cube/controller/fertilitytechnology.js"></script>
+        <script src="/app/lucius/dashboard-sales_cube/controller/neurology.js"></script>
+        <script src="/app/lucius/dashboard-sales_cube/controller/salescubemain.js"></script>
+
+        
+
+        <!-- endbuild -->
+</body>
+</html>

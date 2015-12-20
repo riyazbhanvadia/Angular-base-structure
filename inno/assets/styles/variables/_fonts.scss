@@ -1,0 +1,29 @@
+@include font-face("opensans_bold", '#{$font-path}opensans-bold-webfont', $file-formats: woff2 woff truetype svg);
+@include font-face("open_sanssemibold", '#{$font-path}opensans-semibold-webfont', $file-formats: woff2 woff truetype svg);
+@include font-face("opensans_regular", '#{$font-path}opensans-regular-webfont', $file-formats: woff2 woff truetype svg);
+
+$font-family: (
+    embeded: (
+    	bold: opensans_bold,
+    	medium: open_sanssemibold,
+    	regular: opensans_regular
+    ),
+  //   weights: (
+		// bold: "700",
+		// medium: "500",
+		// regular: "400",
+  //   ),
+    fallbacks: "Helvetica, Arial, sans-serif",
+);
+
+@function getFontFamily($font: roboto) {
+    @return unquote(map-get(map-get($font-family, embeded), $font) +","+ map-get($font-family, fallbacks));
+    
+}
+@mixin font-family($font: roboto) {
+    font-family: getFontFamily($font);
+}
+// @mixin font-weights($weight: bold) {
+// 	$font-weight: unquote(map-get(map-get($font-family, weights), $weight));
+// 	font-weight: $font-weight;
+// }

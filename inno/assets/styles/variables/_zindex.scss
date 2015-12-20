@@ -1,0 +1,36 @@
+// Z-Index Scale (private vars)
+// --------------------------------------------------
+$zindex-private: (
+	zindex-1:   100,
+	zindex-2:   200,
+	zindex-3:   300,
+	zindex-4:   400,
+	zindex-5:   500,
+	zindex-6:   600,
+	zindex-7:   700,
+	zindex-8:   800,
+	zindex-9:   900,
+	zindex-10:	1000,
+	zindex-11:  1030,
+	zindex-12:  1040,
+	zindex-13:  1050,
+	zindex-14:  1060,
+	zindex-15:  1070,
+);
+
+//-- Z-index master list
+//
+// Warning: Avoid customizing these values. They're used for a bird's eye view
+// of components dependent on the z-axis and are designed to all work together.
+//
+
+$zindex: (
+	navbar:            map-get($zindex-private, zindex-10),
+	dropdown:          map-get($zindex-private, zindex-10),
+	popover:           map-get($zindex-private, zindex-14),
+	tooltip:           map-get($zindex-private, zindex-15),
+	navbar-fixed:      map-get($zindex-private, zindex-11),
+	modal-backdrop:    map-get($zindex-private, zindex-12),
+	modal:             map-get($zindex-private, zindex-13),
+	header: 		   map-get($zindex-private, zindex-11),
+);

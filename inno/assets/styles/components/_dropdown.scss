@@ -1,0 +1,174 @@
+//
+// Dropdown menus
+// --------------------------------------------------
+
+%has-arrow {
+    $width: map-fetch($dropdown, dimension, arrow-border-width);
+    margin: ($width + 5px) 0 0;
+    &:after {
+      border-color: map-fetch($dropdown, color-scheme, arrow-border);
+      border-style: solid;
+      border-width: 0 $width $width;
+      content: "";
+      height: 0;
+      left: map-fetch($dropdown, dimension, arrow-horizontal-pos);
+      position: absolute;
+      top: -($width);
+      width: 0;
+    }
+    &.pull-right {
+      &:after {
+        left: auto;
+        right: map-fetch($dropdown, dimension, arrow-horizontal-pos);
+      }
+    }
+}
+
+%dropdown-menu-wrap {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  z-index: zindex(dropdown);
+  min-width: map-fetch($dropdown, dimension, width);
+  max-width: map-fetch($dropdown, dimension, width);
+  text-align: left; // Ensures proper alignment if parent has it changed (e.g., modal footer)
+  background-color: map-fetch($dropdown, color-scheme, bg);
+  border: 1px solid map-fetch($dropdown, color-scheme, border);
+  box-shadow: map-fetch($dropdown, color-scheme, box-shadow);
+  background-clip: padding-box;
+  display: none;
+  font-size: map-fetch($dropdown, dimension, font-size);
+}
+// The dropdown wrapper (div)
+.dropdown {
+  position: relative;
+}
+
+// Prevent the focus on the dropdown toggle when closing dropdowns
+.dropdown-toggle:focus {
+  outline: 0;
+}
+.dropdown-menu-wrap {
+  @extend %dropdown-menu-wrap;
+  &.has-arrow {
+    @extend %has-arrow;
+  }
+  &.pull-right {
+    right: 0;
+    left: auto;
+    text-align: right;
+  }
+  &.has-open-effect {
+    @include transition(all 0.2s ease-out);
+    @include transform-origin(7% -10px);
+    @include transform(scale(0));
+    display: block;
+  }
+  // &.show {
+  //   .dropdown-menu {
+  //     display: block;
+  //   }
+  // }
+}
+// The dropdown menu (ul)
+.dropdown-menu {
+  display: none; // none by default, but block on "open" of the menu
+  max-height: 300px;
+  overflow-y: auto;
+
+  > li {
+    border-bottom: 1px solid lighten(map-fetch($dropdown, color-scheme, border), 7%);
+    .dropdown-menu-itm {
+      display: block;
+      padding: 10px;
+      word-wrap: break-word;
+      clear: both;
+      font-weight: normal;
+      line-height: map-fetch($dropdown, dimension, line-height);
+      color: map-fetch($dropdown, color-scheme, link-color);
+      white-space: nowrap; // prevent links from randomly breaking onto new lines
+      max-width: 100%;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      cursor: pointer;
+    }
+  }
+}
+
+// Hover/Focus state
+.dropdown-menu {
+  > li {
+    .dropdown-menu-itm {
+      &:hover,
+      &:focus {
+        text-decoration: none;
+        color: map-fetch($dropdown, color-scheme, link-hover-color);
+        background-color: map-fetch($dropdown, color-scheme, link-hover-bg);
+      }
+    }
+  }
+}
+
+// Active state
+.dropdown-menu > .active .dropdown-menu-itm {
+  &,
+  &:hover,
+  &:focus {
+    color: map-fetch($dropdown, color-scheme, link-active-color);
+    text-decoration: none;
+    outline: 0;
+    background-color: map-fetch($dropdown, color-scheme, link-active-bg);
+  }
+}
+
+// Disabled state
+//
+// Gray out text and ensure the hover/focus state remains gray
+
+.dropdown-menu > .disabled .dropdown-menu-itm {
+  &,
+  &:hover,
+  &:focus {
+    color: map-fetch($dropdown, color-scheme, link-disabled-color);
+  }
+}
+// Nuke hover/focus effects
+.dropdown-menu > .disabled .dropdown-menu-itm {
+  &:hover,
+  &:focus {
+    text-decoration: none;
+    background-color: transparent;
+    background-image: none; // Remove CSS gradient
+    cursor: not-allowed;
+  }
+}
+
+// Open state for the dropdown
+.open {
+  // Show the menu
+  > .dropdown-menu-wrap {
+    display: block;
+    &.has-open-effect {
+      @include transition(transform 0.3s cubic-bezier(0.3, 1.6, 0.7, 1), 0.3s opacity ease-out);
+      @include transform(scale(1));
+    }
+
+    > .dropdown-menu {
+      display: block;
+    }
+  }
+
+  // // Remove the outline when :focus is triggered
+  // > a {
+  //   outline: 0;
+  // }
+}
+// Backdrop to catch body clicks on mobile, etc.
+.dropdown-backdrop {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top: 0;
+  z-index: (zindex(dropdown) - 10);
+}

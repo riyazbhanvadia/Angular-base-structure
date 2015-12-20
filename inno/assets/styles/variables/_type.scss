@@ -1,0 +1,14 @@
+$heading: (
+	size: (
+		h1:  floor(($font-size-base * 2.6)), // ~31px
+		h2: floor(($font-size-base * 2.15)), // ~25px
+		h3: ceil(($font-size-base * 1.7)), // ~21px
+		h4: ceil(($font-size-base * 1.25)), // ~15px
+		h5: $font-size-base,
+		h6: ceil(($font-size-base * 0.85)), // ~11px
+	),
+	family: inherit,
+	weight: normal,
+	line-height: 1.1,
+	color: inherit
+);

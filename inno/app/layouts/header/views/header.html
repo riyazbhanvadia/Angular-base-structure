@@ -1,0 +1,70 @@
+<div class="header fixed" ng-controller="HeaderCtrl">
+  <div class="container">
+    <ul class="pull-left logo center">
+      <li>
+        <!-- <a ui-sref="home" class="company link"> -->
+        <a  class="company link">
+          <i class="icon icon-logo"></i>
+        </a>
+      </li>
+      <li>
+        <!-- <a ui-sref="home" class="brand link"> -->
+        <a  class="brand link">
+          Lucius
+        </a>
+      </li>
+      <li>
+        <a ui-sref="home.salescube.company" class="product link">
+          Sales Cube
+        </a>
+      </li>
+    </ul>
+
+    <ul class="pull-right header-menu navigation center">
+      <li class="dropdown">
+        <a class="dropdown-toggle link has-user" data-toggle="dropdown">
+            <i class="icon icon-details"></i>
+            <!-- <span class="chevron bottom"></span> -->
+        </a>
+        <div class="dropdown-menu-wrap pull-right has-arrow header-dropdown">
+          <ul class="dropdown-menu" role="menu">
+              <li>
+                  <a class="dropdown-menu-itm" ui-sref="home.salescube.company">
+                    <span class="txt">Sales Cube</span>
+                  </a>
+              </li>
+              <li>
+                  <a class="dropdown-menu-itm">
+                    <span class="txt">Still in develope</span>
+                  </a>
+              </li>
+          </ul>
+        </div>
+      </li>
+      <li class="dropdown">
+        <a class="dropdown-toggle link has-user" data-toggle="dropdown">
+            <i class="icon icon-user"></i>
+            <!-- <span class="chevron bottom"></span> -->
+        </a>
+        <div class="dropdown-menu-wrap pull-right has-arrow header-dropdown">
+          <ul class="dropdown-menu" role="menu">
+              <li>
+                  <a class="dropdown-menu-itm" ui-sref="changepassword">
+                    <span class="txt">Change Password</span>
+                  </a>
+              </li>
+              <li>
+                  <a class="dropdown-menu-itm" ui-sref="logout">
+                    <span class="txt">Sign Out</span>
+                  </a>
+              </li>
+          </ul>
+        </div>
+      </li>
+    </ul>
+  </div>
+
+    <!-- <ul class="nav navbar-nav">
+        <li ng-repeat="menutag in menu  track by $index"><a ui-sref="home.{{menutag.name}}">{{menutag.name}}</a></li>
+      </ul> -->
+</div>
